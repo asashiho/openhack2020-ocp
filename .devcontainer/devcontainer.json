@@ -1,0 +1,33 @@
+{
+    "name": "OpenHack",
+    "dockerFile": "Dockerfile",
+    "runArgs": [ "--privileged" ],
+    "settings": {
+    "terminal.integrated.shell.linux": null
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-kubernetes-tools.vscode-aks-tools",
+        "eamodio.gitlens",
+        "mechatroner.rainbow-csv",
+        "ionutvmi.path-autocomplete",
+        "bencoleman.armview",
+        "ms-vscode.azure-account",
+        "ms-azuretools.vscode-apimanagement",
+        "ms-vscode.azurecli",
+        "azurepolicy.azurepolicyextension",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "msazurermtools.azurerm-vscode-tools",
+        "ms-azuretools.vscode-azureterraform",
+        "oderwat.indent-rainbow",
+        "ms-python.vscode-pylance",
+        "arjun.swagger-viewer",
+        "humao.rest-client",
+        "andrsdc.base16-themes"
+    ],
+    "postCreateCommand": "dockerd-entrypoint.sh --experimental &",
+    "remoteUser": "rootless",
+    "forwardPorts": [8080]
+}
