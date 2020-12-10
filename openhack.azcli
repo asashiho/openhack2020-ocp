@@ -1,0 +1,53 @@
+# OpanHack チート
+
+# 事前準備
+## sql-server imageのダウンロード
+docker image pull mcr.microsoft.com/mssql/server:2017-latest
+
+helm version
+kubectl version
+docker version
+az version
+
+## kubectl completion
+source <(kubectl completion bash)
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+alias k=kubectl
+complete -F __start_kubectl k
+
+
+# 関連リンク
+## kubernetes cheatsheet
+https://kubernetes.io/ja/docs/reference/kubectl/cheatsheet/
+
+
+# azureへのログイン
+az login
+
+# AKSクラスタのデプロイ
+## create RG
+export RG_NAME=akssample2
+export AKS_NAME=akssample2
+export LOCATION=japaneast
+
+az group create \
+    -n $RG_NAME \
+    -l $LOCATION
+
+## deploy aks cluster
+az aks create \
+    -n $AKS_NAME \
+    -g $RG_NAME \
+    --node-count 1 \
+    --enable-addons monitoring \
+    --generate-ssh-keys
+
+az aks get-credentials \
+-g $RG_NAME \
+-n $AKS_NAME
+
+
+# clean up
+az group delete \
+    -n $RG_NAME
+    
